@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ucar.workflow.dao.GroupDao">
+<resultMap id="groupResultMap" type="com.ucar.workflow.entity.Group">
+    <result column="NAME" jdbcType="VARCHAR" property="groupName"></result>
+    <result column="GROUP_ID" jdbcType="INTEGER" property="groupId"></result>
+</resultMap>
+    <select id="findGroups" resultMap="groupResultMap" >
+        select name,group_id from t_group
+    </select>
+</mapper>

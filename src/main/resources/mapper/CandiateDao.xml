@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ucar.workflow.dao.CandidateDao">
+    <resultMap id="candidateResultMap" type="com.ucar.workflow.entity.Candidate">
+        <!--<result property="groupId" jdbcType="INT" column="GROUP_ID"></result>-->
+        <result property="name" jdbcType="VARCHAR" column="USER_NAME"></result>
+    </resultMap>
+
+    <select id="findCandidates" resultMap="candidateResultMap" parameterType="java.lang.Integer">
+
+        select user_name from t_group t1,t_user t2
+        where t1.group_id=t2.group_id
+        and t2.group_id=#{groupId}
+    </select>
+</mapper>
